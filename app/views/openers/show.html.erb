@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Styles</dt>
-      <dd><%= @opener.styles_id %></dd>
+      <dd>
+        <% if @opener.styles.present? %>
+          <a href="/styles/<%= @opener.styles_id %>">
+            <%= @opener.styles.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Title</dt>
       <dd><%= @opener.title %></dd>

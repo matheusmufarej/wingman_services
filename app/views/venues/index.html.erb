@@ -29,7 +29,13 @@
 
       <% @venues.each do |venue| %>
       <tr>
-        <td><%= venue.style.title %></td>
+        <td>
+          <% if venue.style.present? %>
+            <a href="/styles/<%= venue.style.id %>">
+              <%= venue.style.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= venue.name %></td>
         <td><%= venue.address %></td>
         <td><%= venue.description %></td>

@@ -17,9 +17,27 @@
 
       <% @approaches.each do |approach| %>
       <tr>
-        <td><%= approach.user.email %></td>
-        <td><%= approach.venue.style_id %></td>
-        <td><%= approach.opener.styles_id %></td>
+        <td>
+          <% if approach.user.present? %>
+            <a href="/users/<%= approach.user.id %>">
+              <%= approach.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if approach.venue.present? %>
+            <a href="/venues/<%= approach.venue.id %>">
+              <%= approach.venue.style_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if approach.opener.present? %>
+            <a href="/openers/<%= approach.opener.id %>">
+              <%= approach.opener.styles_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/approaches/<%= approach.id %>" class="btn btn-primary">Show</a>
           

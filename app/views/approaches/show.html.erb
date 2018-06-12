@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @approach.user_id %></dd>
+      <dd>
+        <% if @approach.user.present? %>
+          <a href="/users/<%= @approach.user_id %>">
+            <%= @approach.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Venue</dt>
-      <dd><%= @approach.venue_id %></dd>
+      <dd>
+        <% if @approach.venue.present? %>
+          <a href="/venues/<%= @approach.venue_id %>">
+            <%= @approach.venue.style_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Opener</dt>
-      <dd><%= @approach.opener_id %></dd>
+      <dd>
+        <% if @approach.opener.present? %>
+          <a href="/openers/<%= @approach.opener_id %>">
+            <%= @approach.opener.styles_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
