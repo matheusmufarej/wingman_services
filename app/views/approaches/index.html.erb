@@ -22,8 +22,11 @@
         <td><%= approach.opener.styles_id %></td>
         <td>
           <a href="/approaches/<%= approach.id %>" class="btn btn-primary">Show</a>
-          <a href="/approaches/<%= approach.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_approach/<%= approach.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == approach.user %>
+            <a href="/approaches/<%= approach.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_approach/<%= approach.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

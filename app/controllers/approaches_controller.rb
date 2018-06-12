@@ -1,4 +1,14 @@
 class ApproachesController < ApplicationController
+  before_action :current_user_must_be_approach_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_approach_user
+    approach = Approach.find(params[:id])
+
+    unless current_user == approach.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @approaches = Approach.all
 
