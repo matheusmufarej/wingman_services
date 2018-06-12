@@ -1,5 +1,5 @@
 class ApproachesController < ApplicationController
-  before_action :current_user_must_be_approach_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_approach_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_approach_user
     approach = Approach.find(params[:id])
