@@ -24,7 +24,7 @@
           Styles
         </label>
 
-        <input type="text" id="styles_id" name="styles_id" placeholder="Styles" class="form-control" value="<%= @opener.styles_id %>">
+        <%= select_tag(:styles_id, options_from_collection_for_select(Style.all, :id, :title, @opener.styles_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for title -->
