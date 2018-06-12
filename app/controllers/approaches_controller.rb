@@ -10,7 +10,7 @@ class ApproachesController < ApplicationController
   end
 
   def index
-    @approaches = Approach.all
+    @approaches = current_user.approaches.page(params[:page]).per(10)
 
     render("approaches/index.html.erb")
   end
