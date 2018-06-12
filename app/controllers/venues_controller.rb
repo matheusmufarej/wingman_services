@@ -32,7 +32,7 @@ class VenuesController < ApplicationController
     @venue.address = params[:address]
     @venue.description = params[:description]
     @venue.website = params[:website]
-    @venue.photo = params[:photo]
+    #@venue.photo = params[:photo]
 
     save_status = @venue.save
 

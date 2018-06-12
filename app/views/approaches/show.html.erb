@@ -18,7 +18,7 @@
       <dd>
         <% if @approach.venue.present? %>
           <a href="/venues/<%= @approach.venue_id %>">
-            <%= @approach.venue.style_id %>
+            <%= @approach.venue.name %>
           </a>
         <% end %>
       </dd>
@@ -27,8 +27,24 @@
       <dd>
         <% if @approach.opener.present? %>
           <a href="/openers/<%= @approach.opener_id %>">
-            <%= @approach.opener.styles_id %>
+            <%= @approach.opener.title %>
           </a>
+        <% end %>
+      </dd>
+
+      <dt>When</dt>
+      <dd>
+        <% if @approach.opener.present? %>
+            <%= @approach.created_at %>
+        <% end %>
+      </dd>
+
+      <dt>Successful</dt>
+      <dd>
+        <% if @approach.opener.present? %>
+              <% if @approach.successful==true %> Yes!
+                <%else%> Nope.
+              <%end%>
         <% end %>
       </dd>
 

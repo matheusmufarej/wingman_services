@@ -75,6 +75,8 @@
         <th>User</th>
         <th>Venue</th>
         <th>Opener</th>
+        <th>When</th>
+        <th>Successful?</th>
         <th>Actions</th>
       </tr>
 
@@ -83,24 +85,38 @@
         <td>
           <% if approach.user.present? %>
             <a href="/users/<%= approach.user.id %>">
-              <%= approach.user.email %>
+              <%= approach.user.username %>
             </a>
           <% end %>
         </td>
         <td>
           <% if approach.venue.present? %>
             <a href="/venues/<%= approach.venue.id %>">
-              <%= approach.venue.style_id %>
+              <%= approach.venue.name %>
             </a>
           <% end %>
         </td>
         <td>
           <% if approach.opener.present? %>
             <a href="/openers/<%= approach.opener.id %>">
-              <%= approach.opener.styles_id %>
+              <%= approach.opener.title %>
             </a>
           <% end %>
         </td>
+        <td>
+          <% if approach.opener.present? %>
+              <%= approach.created_at.to_date %>
+          <% end %>
+        </td>
+        
+        <td>
+          <% if approach.opener.present? %>
+              <% if approach.successful==true %> Yes!
+                <%else%> Nope.
+              <%end%>
+          <% end %>
+        </td>
+        
         <td>
           <a href="/approaches/<%= approach.id %>" class="btn btn-primary">Show</a>
           

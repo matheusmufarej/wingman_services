@@ -27,7 +27,7 @@
           Venue
         </label>
 
-        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :style_id, @approach.venue_id), :class => "form-control") %>
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for opener_id -->
@@ -36,8 +36,22 @@
           Opener
         </label>
 
-        <%= select_tag(:opener_id, options_from_collection_for_select(Opener.all, :id, :styles_id, @approach.opener_id), :class => "form-control") %>
+        <%= select_tag(:opener_id, options_from_collection_for_select(Opener.all, :id, :title), :class => "form-control") %>
       </div>
+
+      <!-- Label and input for successful -->
+      <div class="form-group">
+        <label for="successful" class="control-label">
+          Was it successful?
+        </label>
+        
+        <select class="custom-select" id="successful" name="successful" >
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+        
+      </div>
+
 
       <button class="btn btn-warning">
         Update Approach

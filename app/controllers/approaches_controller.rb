@@ -34,7 +34,8 @@ class ApproachesController < ApplicationController
     @approach.user_id = params[:user_id]
     @approach.venue_id = params[:venue_id]
     @approach.opener_id = params[:opener_id]
-
+    @approach.successful = params[:successful]
+    
     save_status = @approach.save
 
     if save_status == true
