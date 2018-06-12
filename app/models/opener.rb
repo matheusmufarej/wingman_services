@@ -9,6 +9,10 @@ class Opener < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :venues,
+             :through => :approaches,
+             :source => :venue
+
   has_many   :users,
              :through => :approaches,
              :source => :user
