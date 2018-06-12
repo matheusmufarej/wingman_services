@@ -23,3 +23,96 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many approaches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Approaches
+      </li>
+
+      <% @user.approaches.each do |approach| %>
+        <li class="list-group-item">
+          <a href="/approaches/<%= approach.id %>">
+            <%= approach.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/approaches/<%= approach.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/approaches/<%= approach.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_approach/<%= approach.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many openers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Openers
+      </li>
+
+      <% @user.openers.each do |opener| %>
+        <li class="list-group-item">
+          <a href="/openers/<%= opener.id %>">
+            <%= opener.styles_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/openers/<%= opener.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/openers/<%= opener.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_opener/<%= opener.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many venues -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Venues
+      </li>
+
+      <% @user.venues.each do |venue| %>
+        <li class="list-group-item">
+          <a href="/venues/<%= venue.id %>">
+            <%= venue.style_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/venues/<%= venue.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
