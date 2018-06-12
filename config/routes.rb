@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Opener resource:
+  # CREATE
+  get "/openers/new", :controller => "openers", :action => "new"
+  post "/create_opener", :controller => "openers", :action => "create"
+
+  # READ
+  get "/openers", :controller => "openers", :action => "index"
+  get "/openers/:id", :controller => "openers", :action => "show"
+
+  # UPDATE
+  get "/openers/:id/edit", :controller => "openers", :action => "edit"
+  post "/update_opener/:id", :controller => "openers", :action => "update"
+
+  # DELETE
+  get "/delete_opener/:id", :controller => "openers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Style resource:
   # CREATE
   get "/styles/new", :controller => "styles", :action => "new"

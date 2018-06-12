@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @opener.errors.any? %>
+  <% @opener.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Opener #<%= @opener.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_opener/<%= @opener.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for styles_id -->
+      <div class="form-group">
+        <label for="styles_id" class="control-label">
+          Styles
+        </label>
+
+        <input type="text" id="styles_id" name="styles_id" placeholder="Styles" class="form-control" value="<%= @opener.styles_id %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @opener.title %>">
+      </div>
+
+      <!-- Label and input for line -->
+      <div class="form-group">
+        <label for="line" class="control-label">
+          Line
+        </label>
+
+        <input type="text" id="line" name="line" placeholder="Line" class="form-control" value="<%= @opener.line %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Opener
+      </button>
+      or
+      <a href="/openers/<%= @opener.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
