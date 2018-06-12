@@ -10,6 +10,10 @@ class Style < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :approaches,
+             :through => :openers,
+             :source => :approaches
+
   # Validations
 
 end

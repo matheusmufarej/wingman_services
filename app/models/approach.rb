@@ -9,6 +9,10 @@ class Approach < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :style,
+             :through => :opener,
+             :source => :styles
+
   # Validations
 
 end
