@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Approach resource:
+  # CREATE
+  get "/approaches/new", :controller => "approaches", :action => "new"
+  post "/create_approach", :controller => "approaches", :action => "create"
+
+  # READ
+  get "/approaches", :controller => "approaches", :action => "index"
+  get "/approaches/:id", :controller => "approaches", :action => "show"
+
+  # UPDATE
+  get "/approaches/:id/edit", :controller => "approaches", :action => "edit"
+  post "/update_approach/:id", :controller => "approaches", :action => "update"
+
+  # DELETE
+  get "/delete_approach/:id", :controller => "approaches", :action => "destroy"
+  #------------------------------
+
   # Routes for the Opener resource:
   # CREATE
   get "/openers/new", :controller => "openers", :action => "new"

@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Approach #<%= @approach.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @approach.user_id %></dd>
+
+      <dt>Venue</dt>
+      <dd><%= @approach.venue_id %></dd>
+
+      <dt>Opener</dt>
+      <dd><%= @approach.opener_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/approaches" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/approaches/<%= @approach.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_approach/<%= @approach.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
