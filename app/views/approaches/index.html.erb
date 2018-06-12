@@ -17,7 +17,7 @@
 
       <% @approaches.each do |approach| %>
       <tr>
-        <td><%= approach.user_id %></td>
+        <td><%= approach.user.email %></td>
         <td><%= approach.venue_id %></td>
         <td><%= approach.opener_id %></td>
         <td>
