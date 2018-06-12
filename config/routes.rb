@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Style resource:
+  # CREATE
+  get "/styles/new", :controller => "styles", :action => "new"
+  post "/create_style", :controller => "styles", :action => "create"
+
+  # READ
+  get "/styles", :controller => "styles", :action => "index"
+  get "/styles/:id", :controller => "styles", :action => "show"
+
+  # UPDATE
+  get "/styles/:id/edit", :controller => "styles", :action => "edit"
+  post "/update_style/:id", :controller => "styles", :action => "update"
+
+  # DELETE
+  get "/delete_style/:id", :controller => "styles", :action => "destroy"
+  #------------------------------
+
   # Routes for the Venue resource:
   # CREATE
   get "/venues/new", :controller => "venues", :action => "new"
