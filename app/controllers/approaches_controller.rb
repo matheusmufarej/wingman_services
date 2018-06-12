@@ -48,8 +48,6 @@ class ApproachesController < ApplicationController
 
   def update
     @approach = Approach.find(params[:id])
-
-    @approach.user_id = params[:user_id]
     @approach.venue_id = params[:venue_id]
     @approach.opener_id = params[:opener_id]
 
