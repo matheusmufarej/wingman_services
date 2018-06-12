@@ -24,7 +24,7 @@
           Style
         </label>
 
-        <input type="text" id="style_id" name="style_id" placeholder="Style" class="form-control" value="<%= @venue.style_id %>">
+        <%= select_tag(:style_id, options_from_collection_for_select(Style.all, :id, :title, @venue.style_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for name -->
