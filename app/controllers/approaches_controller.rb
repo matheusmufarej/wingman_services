@@ -10,7 +10,8 @@ class ApproachesController < ApplicationController
   end
 
   def index
-    @approaches = current_user.approaches.page(params[:page]).per(10)
+    @q = current_user.approaches.ransack(params[:q])
+    @approaches = @q.result(:distinct => true).includes(:user, :venue, :opener, :style).page(params[:page]).per(10)
 
     render("approaches/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class OpenersController < ApplicationController
   def index
-    @openers = Opener.page(params[:page]).per(10)
+    @q = Opener.ransack(params[:q])
+    @openers = @q.result(:distinct => true).includes(:styles, :approaches, :users, :venues).page(params[:page]).per(10)
 
     render("openers/index.html.erb")
   end
