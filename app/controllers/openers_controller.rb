@@ -1,6 +1,6 @@
 class OpenersController < ApplicationController
   def index
-    @openers = Opener.all
+    @openers = Opener.page(params[:page]).per(10)
 
     render("openers/index.html.erb")
   end

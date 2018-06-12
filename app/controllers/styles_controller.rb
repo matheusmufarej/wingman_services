@@ -1,6 +1,6 @@
 class StylesController < ApplicationController
   def index
-    @styles = Style.all
+    @styles = Style.page(params[:page]).per(10)
 
     render("styles/index.html.erb")
   end
