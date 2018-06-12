@@ -33,7 +33,7 @@
           Venue
         </label>
 
-        <input type="text" id="venue_id" name="venue_id" placeholder="Venue" class="form-control" value="<%= @approach.venue_id %>">
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :style_id, @approach.venue_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for opener_id -->
