@@ -42,7 +42,7 @@
           Opener
         </label>
 
-        <input type="text" id="opener_id" name="opener_id" placeholder="Opener" class="form-control" value="<%= @approach.opener_id %>">
+        <%= select_tag(:opener_id, options_from_collection_for_select(Opener.all, :id, :styles_id, @approach.opener_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
