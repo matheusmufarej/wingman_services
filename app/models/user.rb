@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :openers,
+             :through => :approaches,
+             :source => :opener
+
   # Validations
 
   # Include default devise modules. Others available are:
