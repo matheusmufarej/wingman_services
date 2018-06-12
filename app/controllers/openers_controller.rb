@@ -6,6 +6,7 @@ class OpenersController < ApplicationController
   end
 
   def show
+    @approach = Approach.new
     @opener = Opener.find(params[:id])
 
     render("openers/show.html.erb")

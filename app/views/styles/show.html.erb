@@ -54,6 +54,65 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_venue" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for style_id -->
+      <input type="hidden" name="style_id" value="<%= @style.id %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for website -->
+      <div class="form-group">
+        <label for="website" class="control-label">
+          Website
+        </label>
+
+        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Photo
+        </label>
+
+        <input type="file" id="photo" name="photo" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Venue
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +144,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_opener" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for styles_id -->
+      <div class="form-group">
+        <label for="styles_id" class="control-label">
+          Styles
+        </label>
+
+        <%= select_tag(:styles_id, options_from_collection_for_select(Style.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for line -->
+      <div class="form-group">
+        <label for="line" class="control-label">
+          Line
+        </label>
+
+        <input type="text" id="line" name="line" placeholder="Line" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Opener
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

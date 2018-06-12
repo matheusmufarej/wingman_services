@@ -6,6 +6,8 @@ class StylesController < ApplicationController
   end
 
   def show
+    @opener = Opener.new
+    @venue = Venue.new
     @style = Style.find(params[:id])
 
     render("styles/show.html.erb")
