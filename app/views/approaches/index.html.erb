@@ -18,7 +18,7 @@
       <% @approaches.each do |approach| %>
       <tr>
         <td><%= approach.user.email %></td>
-        <td><%= approach.venue_id %></td>
+        <td><%= approach.venue.style_id %></td>
         <td><%= approach.opener_id %></td>
         <td>
           <a href="/approaches/<%= approach.id %>" class="btn btn-primary">Show</a>
