@@ -27,6 +27,31 @@ class ApproachesController < ApplicationController
 
     render("approaches/new.html.erb")
   end
+  
+  def new_bar
+    @approach = Approach.new
+
+    render("approaches/new_bar.html.erb")
+  end
+  
+  def new_club
+    @approach = Approach.new
+
+    render("approaches/new_club.html.erb")
+  end
+
+  def new_retail
+    @approach = Approach.new
+
+    render("approaches/new_retail.html.erb")
+  end
+
+  def new_street
+    @approach = Approach.new
+
+    render("approaches/new_street.html.erb")
+  end
+
 
   def create
     @approach = Approach.new
@@ -42,7 +67,7 @@ class ApproachesController < ApplicationController
       referer = URI(request.referer).path
 
       case referer
-      when "/approaches/new", "/create_approach"
+      when "/approaches/new", "/create_approach", "/approaches/new_bar", "/approaches/new_club", "/approaches/new_retail", "/approaches/new_street"
         redirect_to("/approaches")
       else
         redirect_back(:fallback_location => "/", :notice => "Approach created successfully.")

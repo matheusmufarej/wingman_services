@@ -3,6 +3,7 @@
     Openers
     <a href="/openers/new" class="btn btn-lg btn-success">New Opener</a>
   </h1>
+  <h5>The administrator reserves himself the right to exclude any sub-standard openers.</h5>
 </div><div class="row mb-1">
   <div class="col-md-12">
     <%= search_form_for @q, :class => collapse_search_form, :id => "openers_filters" do |f| %>
@@ -101,8 +102,11 @@
         <td><%= opener.line %></td>
         <td>
           <a href="/openers/<%= opener.id %>" class="btn btn-primary">Show</a>
-          <a href="/openers/<%= opener.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_opener/<%= opener.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if opener.user_id == current_user.id %>
+            <a href="/openers/<%= opener.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_opener/<%= opener.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

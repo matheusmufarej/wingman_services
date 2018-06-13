@@ -63,8 +63,11 @@
         <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @venue.website %>">
       </div>
 
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
       <!-- Label and input for photo -->
-<!--      <div class="form-group">
+      <!--<div class="form-group">
         <label for="photo" class="control-label">
           Photo
         </label>

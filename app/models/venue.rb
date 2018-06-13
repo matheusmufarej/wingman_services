@@ -48,8 +48,8 @@ class Venue < ApplicationRecord
 
   validates :description, presence: true
 
-  validates :website, presence: true
-    validates :website, uniqueness: true
+  #validates :website, presence: true
+    #validates :website, uniqueness: true
     #validates :website, url: true
 
 

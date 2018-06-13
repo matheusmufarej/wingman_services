@@ -1,8 +1,9 @@
 <div class="page-header">
   <h1>
     Styles
-    <a href="/styles/new" class="btn btn-lg btn-success">New Style</a>
+    <!--<a href="/styles/new" class="btn btn-lg btn-success">New Style</a>-->
   </h1>
+  <h5>To add/delete/edit a style please contact the administrator at admin@wingmanservices.com</h5>
 </div><div class="row mb-1">
   <div class="col-md-12">
     <%= search_form_for @q, :class => collapse_search_form, :id => "styles_filters" do |f| %>
@@ -85,8 +86,8 @@
         <td><%= style.description %></td>
         <td>
           <a href="/styles/<%= style.id %>" class="btn btn-primary">Show</a>
-          <a href="/styles/<%= style.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_style/<%= style.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+         <!-- <a href="/styles/<%#= style.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_style/<%#= style.id %>" class="btn btn-danger" rel="nofollow">Delete</a>-->
         </td>
       </tr>
       <% end %>

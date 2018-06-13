@@ -3,6 +3,7 @@
     Venues
     <a href="/venues/new" class="btn btn-lg btn-success">New Venue</a>
   </h1>
+   <h5>The administrator reserves himself the right to exclude any sub-standard venues.</h5>
 </div><div class="row mb-1">
   <div class="col-md-12">
     <%= search_form_for @q, :class => collapse_search_form, :id => "venues_filters" do |f| %>
@@ -125,8 +126,11 @@
 <!--        <td><img src='<%#= venue.photo %>' class='img-responsive'></td>-->
         <td>
           <a href="/venues/<%= venue.id %>" class="btn btn-primary">Show</a>
-          <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+
+          <% if venue.user_id == current_user.id %>
+            <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

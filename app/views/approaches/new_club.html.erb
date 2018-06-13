@@ -1,0 +1,77 @@
+<!-- Validation failure messages -->
+<% if @approach.errors.any? %>
+  <% @approach.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Use this (random) opener in a Club/Show</h3>
+</div>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <% a=Opener.all.select{|hash| hash[:styles_id] ==2 }.sample %>
+    <h2 class="display-4"><%= a.title %></h2>
+    <p class="lead"><%= a.line %></p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_approach" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+
+    <div class="page-header">
+      <h3>Report your success with this approach:</h3>
+    </div>
+
+      <!-- Label and input for venue_id -->
+      <div class="form-group">
+        <label for="venue_id" class="control-label">
+          Select the Club/Show you were in
+        </label>
+        
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all.select{|hash| hash[:style_id]==2}, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for opener_id -->
+      <input type="hidden" name="opener_id" value="<%= a.id %>">
+
+      <!-- Label and input for successful -->
+      <div class="form-group">
+        <label for="successful" class="control-label">
+          Was it successful?
+        </label>
+        
+        <div>
+          <select class="custom-select" id="successful" name="successful" >
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+      </div>
+
+        <%#= select_tag(:opener_id, options_from_collection_for_select(Opener.all, :id, :title), :class => "form-control") %>
+        <%#= select_tag(:opener_id, options_from_collection_for_select(Opener.all, :id, :styles_id, @approach.opener_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-success">
+        Create Approach
+      </button>
+      or
+      <a href="/approaches">Cancel</a>
+    </form>
+  </div>
+</div>
+
+<hr>

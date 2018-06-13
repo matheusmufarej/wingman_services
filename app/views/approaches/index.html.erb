@@ -1,8 +1,73 @@
 <div class="page-header">
   <h1>
     Approaches
-    <a href="/approaches/new" class="btn btn-lg btn-success">New Approach</a>
+<!--    <a href="/approaches/new" class="btn btn-lg btn-success">New Approach</a>-->
   </h1>
+
+<hr>
+
+  <h3>New approach location:</h3>
+    <div class="btn-group btn-group-justified">
+      <a href="/approaches/new_bar" class="btn btn-lg btn-success">
+        Bar
+      </a>
+      <a href="/approaches/new_club" class="btn btn-lg btn-success">
+        Nightclub/Shows
+      </a>
+      <a href="/approaches/new_retail" class="btn btn-lg btn-success" rel="nofollow">
+        Mall/Store/Cafe
+      </a>
+      <a href="/approaches/new_street" class="btn btn-lg btn-success" rel="nofollow">
+        Street
+      </a>
+    </div>
+
+
+<hr>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Your game stats:</h2>
+    <p>
+    - Number of approaches: 
+      <% count = [] %>
+        <% @approaches.each do |approach| %>
+          <% if approach.user_id == current_user.id %>
+            <% count.push(1) %>
+          <% end %>
+        <% end %>
+      <b><%= count.count %></b>
+    </p>
+    
+    <p>
+      - Number of successes: 
+      <% count2 = [] %>
+        <% @approaches.each do |approach| %>
+          <% if approach.user_id == current_user.id %>
+            <% if approach.successful == true %>
+              <% count2.push(1) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <b><%= count2.count %></b>
+    </p>
+    
+    <p>
+      = Success ratio: 
+      <b><%= number_to_percentage(count2.count.to_d / count.count.to_d * 100, precision: 2) %>
+      </b>
+    </p>
+  </div>
+ 
+  <div class="container">
+    <h2 class="display-4">Keep it up!</h2>
+      <p class="lead">It's only <b><%= Time.now.utc.in_time_zone("Central Time (US & Canada)").strftime("%H:%M") %></b> of <%= Date.today.to_formatted_s(:long_ordinal) %>, there is still time to go out!
+      </p>
+  </div>
+
+</div>
+
+  
 </div><div class="row mb-1">
   <div class="col-md-12">
     <%= search_form_for @q, :class => collapse_search_form, :id => "approaches_filters" do |f| %>

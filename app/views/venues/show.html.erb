@@ -29,9 +29,12 @@
 
       <dt>Website</dt>
       <dd><%= @venue.website %></dd>
+      
+      <dt>Created by</dt>
+      <dd><%= User.find(@venue.user_id).username %></dd>
 
-      <dt>Photo</dt>
-      <dd><img src="<%= @venue.photo %>" class="img-responsive"></dd>
+      <!--<dt>Photo</dt>
+      <dd><img src="<#%= @venue.photo %>" class="img-responsive"></dd>-->
 
     </dl>
 
@@ -39,12 +42,14 @@
       <a href="/venues" class="btn btn-primary">
         Back
       </a>
+      <% if @venue.user_id == current_user.id %>
       <a href="/venues/<%= @venue.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_venue/<%= @venue.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
+      <% end %>
     </div>
   </div>
 </div>
@@ -61,7 +66,7 @@
       <% @venue.approaches.each do |approach| %>
         <li class="list-group-item">
           <a href="/approaches/<%= approach.id %>">
-            <%= approach.user.username %>
+            <%= approach.created_at %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/approaches/<%= approach.id %>" class="btn btn-primary">
@@ -77,62 +82,6 @@
         </li>
       <% end %>
 
-      <li class="list-group-item">
-        <form action="/create_approach" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= current_user.id %>">
-
-      <!-- Label and input for venue_id -->
-      <input type="hidden" name="venue_id" value="<%= @venue.id %>">
-
-      <!-- Label and input for opener_id -->
-      <div class="form-group">
-        <label for="opener_id" class="control-label">
-          Opener
-        </label>
-
-        <%= select_tag(:opener_id, options_from_collection_for_select(Opener.all, :id, :title), :class => "form-control") %>
-      </div>
-
-      <button class="btn btn-block btn-success">
-        Create Approach
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- A Venue has many users -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Users
-      </li>
-
-      <% @venue.users.each do |user| %>
-        <li class="list-group-item">
-          <a href="/users/<%= user.id %>">
-            <%= user.username %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/users/<%= user.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
     </ul>
   </div>
 </div>

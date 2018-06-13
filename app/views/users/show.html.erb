@@ -36,7 +36,7 @@
       <% @user.approaches.each do |approach| %>
         <li class="list-group-item">
           <a href="/approaches/<%= approach.id %>">
-            <%= approach.user_id %>
+            <%= approach.created_at %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/approaches/<%= approach.id %>" class="btn btn-primary">
@@ -69,7 +69,7 @@
       <% @user.openers.each do |opener| %>
         <li class="list-group-item">
           <a href="/openers/<%= opener.id %>">
-            <%= opener.styles_id %>
+            <%= opener.title %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/openers/<%= opener.id %>" class="btn btn-primary">
@@ -100,7 +100,7 @@
       <% @user.venues.each do |venue| %>
         <li class="list-group-item">
           <a href="/venues/<%= venue.id %>">
-            <%= venue.style_id %>
+            <%= venue.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/venues/<%= venue.id %>" class="btn btn-primary">

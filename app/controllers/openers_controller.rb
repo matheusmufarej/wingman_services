@@ -25,7 +25,8 @@ class OpenersController < ApplicationController
     @opener.styles_id = params[:styles_id]
     @opener.title = params[:title]
     @opener.line = params[:line]
-
+    @opener.user_id = params[:user_id]
+    
     save_status = @opener.save
 
     if save_status == true

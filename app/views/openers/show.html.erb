@@ -19,6 +19,11 @@
 
       <dt>Line</dt>
       <dd><%= @opener.line %></dd>
+      
+      <dt>Created by</dt>
+      <dd>
+        <%= User.find(@opener.user_id).username %>
+      </dd>
 
     </dl>
 
@@ -26,12 +31,14 @@
       <a href="/openers" class="btn btn-primary">
         Back
       </a>
+      <% if @opener.user_id == current_user.id %>
       <a href="/openers/<%= @opener.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_opener/<%= @opener.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
+      <% end %>
     </div>
   </div>
 </div>
@@ -48,7 +55,7 @@
       <% @opener.approaches.each do |approach| %>
         <li class="list-group-item">
           <a href="/approaches/<%= approach.id %>">
-            <%= approach.user.username %> / <%= approach.created_at %>
+            <%= approach.created_at %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/approaches/<%= approach.id %>" class="btn btn-primary">
@@ -64,65 +71,10 @@
         </li>
       <% end %>
 
-      <li class="list-group-item">
-        <form action="/create_approach" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= current_user.id %>">
-
-      <!-- Label and input for venue_id -->
-      <div class="form-group">
-        <label for="venue_id" class="control-label">
-          Venue
-        </label>
-
-        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for opener_id -->
-      <input type="hidden" name="opener_id" value="<%= @opener.id %>">
-
-      <button class="btn btn-block btn-success">
-        Create Approach
-      </button>
-    </form>
-      </li>
     </ul>
   </div>
 </div>
 
-<!-- A Opener has many users -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Users
-      </li>
-
-      <% @opener.users.each do |user| %>
-        <li class="list-group-item">
-          <a href="/users/<%= user.id %>">
-            <%= user.username %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/users/<%= user.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
 
 <!-- A Opener has many venues -->
 

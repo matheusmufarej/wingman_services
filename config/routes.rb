@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root :to => "venues#index"
+  root :to => "approaches#index"
+  
   # Routes for the Approach resource:
   # CREATE
   get "/approaches/new", :controller => "approaches", :action => "new"
+  get "/approaches/new_bar", :controller => "approaches", :action => "new_bar"
+  get "/approaches/new_club", :controller => "approaches", :action => "new_club"
+  get "/approaches/new_retail", :controller => "approaches", :action => "new_retail"
+  get "/approaches/new_street", :controller => "approaches", :action => "new_street"
   post "/create_approach", :controller => "approaches", :action => "create"
 
   # READ

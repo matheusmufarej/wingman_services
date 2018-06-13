@@ -21,7 +21,7 @@
       <!-- Label and input for styles_id -->
       <div class="form-group">
         <label for="styles_id" class="control-label">
-          Styles
+          Style
         </label>
 
         <%= select_tag(:styles_id, options_from_collection_for_select(Style.all, :id, :title, @opener.styles_id), :class => "form-control") %>
@@ -44,6 +44,17 @@
 
         <input type="text" id="line" name="line" placeholder="Line" class="form-control" value="<%= @opener.line %>">
       </div>
+
+      <!-- Label and input for user -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          Opener created by you :)
+        </label>
+        
+        <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
+        <!--<input type="text" id="line" name="line" placeholder="Line" class="form-control" value="<%#= @opener.line %>">-->
+      </div>
+
 
       <button class="btn btn-success">
         Create Opener
