@@ -18,5 +18,11 @@ class Opener < ApplicationRecord
              :source => :user
 
   # Validations
+  
+  validates :title, presence: true
+  validates :title, uniqueness: true
+  
+  validates :line, presence: true
+
 
 end

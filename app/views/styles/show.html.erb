@@ -39,7 +39,7 @@
       <% @style.venues.each do |venue| %>
         <li class="list-group-item">
           <a href="/venues/<%= venue.id %>">
-            <%= venue.style_id %>
+            <%= venue.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/venues/<%= venue.id %>" class="btn btn-primary">
@@ -100,13 +100,13 @@
       </div>
 
       <!-- Label and input for photo -->
-      <div class="form-group">
+<!--      <div class="form-group">
         <label for="photo" class="control-label">
           Photo
         </label>
 
         <input type="file" id="photo" name="photo" class="form-control">
-      </div>
+      </div>-->
 
       <button class="btn btn-block btn-success">
         Create Venue
@@ -129,7 +129,7 @@
       <% @style.openers.each do |opener| %>
         <li class="list-group-item">
           <a href="/openers/<%= opener.id %>">
-            <%= opener.styles_id %>
+            <%= opener.title %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/openers/<%= opener.id %>" class="btn btn-primary">

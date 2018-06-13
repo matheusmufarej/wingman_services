@@ -40,4 +40,17 @@ class Venue < ApplicationRecord
 
   # Validations
 
+  validates :name, presence: true
+    validates :name, uniqueness: true
+
+  validates :address, presence: true
+    validates :address, uniqueness: true
+
+  validates :description, presence: true
+
+  validates :website, presence: true
+    validates :website, uniqueness: true
+    #validates :website, url: true
+
+
 end

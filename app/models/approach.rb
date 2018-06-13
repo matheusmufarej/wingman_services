@@ -14,5 +14,7 @@ class Approach < ApplicationRecord
              :source => :styles
 
   # Validations
+    
+    #No open input, so no validation is necessary
 
 end

@@ -15,5 +15,11 @@ class Style < ApplicationRecord
              :source => :approaches
 
   # Validations
+  validates :title, presence: true
+  validates :title, uniqueness: true
+  
+  validates :description, presence: true
+
+
 
 end
