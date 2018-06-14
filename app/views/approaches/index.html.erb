@@ -27,7 +27,7 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h2 class="display-4">Your game stats:</h2>
+    <h3 class="display-4">Your game stats:</h3>
     <p>
     - Number of approaches: 
       <% count = [] %>
@@ -60,7 +60,7 @@
   </div>
  
   <div class="container">
-    <h2 class="display-4">Keep it up!</h2>
+    <h3 class="display-4">Keep it up!</h3>
       <p class="lead">It's only <b><%= Time.now.utc.in_time_zone("Central Time (US & Canada)").strftime("%H:%M") %></b> of <%= Date.today.to_formatted_s(:long_ordinal) %>, there is still time to go out!
       </p>
   </div>
